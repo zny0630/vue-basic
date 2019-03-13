@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>蓝墨云班课</title>
+		<!-- 通过CDN引入Vue.js -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			.container {
+				display: flex;
+				width: 80%;
+				margin: 0 auto;
+			}
+
+			.card {
+				width: 300px;
+				height: 300px;
+				margin-right: 30px;
+				border: 1px solid #EEE;
+				border-radius: 10px;
+				text-align: center;
+			}
+
+			.card img {
+				height: 100%;
+				width: 100%;
+				border-bottom-left-radius: 10px;
+				border-bottom-right-radius: 10px;
+			}
+
+			.master {
+				color: green;
+				font-weight: bold;
+				padding: 0px;
+				margin: 0px;
+				margin-left: 80px;
+				margin-top: 22px;
+				
+			}
+
+			.nomaster{
+				color: red;
+				font-weight: bold;
+				
+			}
+			.infor{
+				display: flex;
+				width: 80%;
+				border-radius: 10px;
+			}
+			.infor img{
+				height: 45px;
+				width: 45px;
+				border-radius: 50%;
+		}
+		
+		   .cl{
+			text-align: left;
+		}
+
+			.sub{
+				text-align: left;
+			}
+			.title{
+				margin-left: 150px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- Vue-app的根容器 -->
+		<div id="app">
+			<h2 v-if="show" class="title">我的蓝墨云班课</h2>
+			<h2>{{index}}</h2>
+			<div class="container">
+				<!-- 通过循环遍历books数组 -->
+				<div class="card" v-for="(subject,index) in subjects">
+					<!-- 绑定图片的封面属性 -->
+					<img :src="subject.cover">
+
+					<!-- 显示图片的名称 -->
+					<h4 class="sub">{{subject.name}}</h4>
+					<!-- 显示班级 -->
+					<h4 class="cl">{{cl}}</h4>
+					<div class="infor">
+						<!-- 显示头像 -->
+					<img :src="subject.avatar">
+					<!-- 显示老师名字 -->
+					<h4 class="teacher">{{subject.teacher}}</h4>
+
+					<!-- 判定master的值，显示不同的文字 -->
+					<p class="master"   v-if="subject.master">364203</p>
+					<p class="no master" v-else></p>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			// 实例化一个Vue对象
+			var app = new Vue({
+				el: '#app',
+				index:0,
+				data: {
+					show: true,
+					subjects: [{
+							name: 'java',
+							cover: 'img/java.jpg',
+							avatar: 'img/avatar1.jpg',
+							teacher:'王萍',
+							master: true
+
+						},
+						{
+							name: 'jsp',
+							cover: 'img/jsp.jpg',
+							avatar: 'img/avatar1.jpg',
+							teacher: '王萍',
+							master: false
+						},
+						{
+							name: 'spring',
+							cover: 'img/spring.jpg',
+							avatar: 'img/avatar2.jpg',
+							teacher:'许莫淇',
+							master: false
+						},
+						{
+							name: 'Vue.js',
+							cover: 'img/Vue.js.jpg',
+							avatar: 'img/avatar2.jpg',
+							teacher: '许莫淇',
+							master: false
+						}
+					],
+					cl: '软件1721'
+				}
+			})
+		</script>
+	</body>
+</html>

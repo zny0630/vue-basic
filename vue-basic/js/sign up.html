@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+
+        }
+        .all {
+            width: 500px;
+            height: 400px;
+            margin: 100px auto 100px;
+            text-align: center;
+            /*border: 3px solid #FF0000;*/
+            background-color: #dddddd;
+            border-radius: 25px;
+        }
+
+
+        .user {
+            width: 300px;
+            height: 32px;
+            font-size: 15px;
+            padding: 1px 0px;
+            margin-bottom: 15px;
+        }
+
+
+        .user hover:{
+            background: rgb(0, 193, 222);
+        }
+
+
+        .arage {
+            width: 300px;
+            height: 36px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            background: rgb(0, 192, 221);
+            border: 0;
+            color: white
+        }
+
+        falv{
+            font-size: 13px;
+            font-family: simhei;
+        }
+        .falv1 {
+            color: rgb(0, 175, 201);
+
+        }
+        .falv2{
+            color: red;
+
+        }
+        .choose{
+            margin-bottom: 15px;
+        }
+        .quhao{
+            border: 1px solid #c3c5c6;
+            border-right: 0;
+            display: inline-table;
+            height: 37px;
+            width: 36px;
+            position: relative;
+            top: 1px;
+            right: -4px;
+            line-height: 36px;
+        }
+        #phone{
+            width: 264px;
+        }
+        #phonenum{
+            width: 224px;
+            position: relative;
+            right: -5px;
+            border-right: 0;
+        }
+        #kkk{
+            width: 80px;
+            height: 38px;
+            /*border-left: 0;*/
+            position: relative;
+            top: -7px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="all">
+        <h1 >{{welcome}}</h1>
+        <input class="user" type="text"  placeholder="  设置账户名"/><br>
+        <input class="user" type="password" placeholder="  设置你的登陆密码" /><br>
+        <span class="quhao">+86</span>
+        <input id="phone" class="user" type="text" placeholder="  请输入手机号码" /><br>
+        <input id="phonenum" class="user" type="text" placeholder="  请输入手机验证码" />
+        <button type="button" id="kkk">获取验证码</button><br>
+
+        <span>你喜欢的新闻内容:</span>
+        <input type="checkbox" name="2" value="时事" v-model="ht"/>时事
+        <input type="checkbox" name="2" value="科技" v-model="ht"/>科技
+        <input class="choose" type="checkbox" name="2" value=" 娱乐" v-model="ht"/>娱乐<br>
+
+        <input class="arage" type="submit" value=" 同 意 条 款 并 注 册 " @click="plana"/><br>
+        <input type="checkbox" @click="planb" />
+        <a class="falv falv1" :href="url1">《闻天下网站服务条款》</a>
+        <a class="falv falv1" :href="url2">《法律声明和隐私权政治》</a>
+        <span class="falv2" v-show="!warning" >请勾选同意协议</span>
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            ht:[],
+            warning:true,
+            show: false,
+            welcome:'欢迎注册闻天下',
+            url1:'http://terms.aliyun.com/legalagreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud201712130944_39600.html?spm=0.7 477816.0.0.24b717ebUEPiN4',      url2:'http://terms.aliyun.com/legalagreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud201710161525_98396.html?spm=0.7 477816.0.0.24b717ebUEPiN4'
+        },
+        methods: {
+
+        plana: function() {
+            if(this.show===false){
+                this.warning = false;
+            }
+            else{
+                alert("注册成功！你喜欢的新闻类型有"+this.ht+this.xb)
+            }
+            },
+        planb: function() {
+            this.show = !this.show
+            if (this.show===true)
+            {
+                this.warning = true;
+            }
+            },
+        }
+    })
+</script>
+</body>
+</html>

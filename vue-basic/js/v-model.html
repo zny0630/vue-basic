@@ -2,26 +2,27 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>vue-model双向绑定练习</title>
-		<!--通过CDN引入Vue.js-->
-		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<title>Vue.js起步</title>
+		<!-- 通过CDN引入Vue.js -->
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	</head>
 	<body>
-		<!--vue-app的根容器-->
+		<!-- vue-app的根容器 -->
 		<div id="app">
-			<input type="text" name="" v-model="name" placeholder="请输入" />
-			<h2>你好,{{name}}</h2>
+			<h2>{{message}}</h2>
+			<h3>{{name}},{{age}}岁</h3>
+			
 		</div>
-		
 		<script type="text/javascript">
-				//实例化一个vue对象
-				var app=new Vue({
-					el:'#app',
-					data:{
-						name:'mua'
-					}
-				})
-			</script>
-		</body>
+			// 实例化一个Vue对象
+			var app = new Vue({
+				el:'#app',
+				data:{
+					message: 'Vue.js',
+					name:'尤雨溪',
+					age: '30'
+				}
+			})
+		</script>
+	</body>
 </html>

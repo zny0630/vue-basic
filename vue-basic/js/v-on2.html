@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<title>隐藏和显示的切换练习</title>
+	</head>
+	<body>
+		<div id="app">
+			<h2 v-if="show">{{name}}</h2>
+			<button type="button" @click="handleClick">隐藏/显示</button>
+
+		</div>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#app',
+				data: {
+					name: '软件1721',
+					show: true
+				},
+				methods: {
+					handleClick: function() {
+						/* if (this.show === true) {
+							this.show = false;
+						} else {
+							this.show = true;
+						} */
+						this.show = !this.show;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
